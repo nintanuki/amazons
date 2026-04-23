@@ -9,14 +9,7 @@ from amazons.game_state import GameState
 
 
 class Renderer:
-    """Draws board state and selection cues.
-
-    Args:
-        surface: Pygame display surface.
-
-    Returns:
-        None
-    """
+    """Draws board state and selection cues."""
 
     def __init__(self, surface: pygame.Surface) -> None:
         self.surface = surface

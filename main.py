@@ -12,14 +12,7 @@ from amazons.renderer import Renderer
 
 
 class GameManager:
-    """Coordinates game flow while delegating specialized responsibilities.
-
-    Args:
-        None
-
-    Returns:
-        None
-    """
+    """Coordinates game flow while delegating specialized responsibilities."""
 
     def __init__(self) -> None:
         pygame.init()
@@ -62,7 +55,9 @@ class GameManager:
 
         if self.selected_destination is None:
             trial_move = Move(self.selected_amazon, board_position, board_position)
-            if self.game_state._path_is_clear(trial_move.from_pos, trial_move.to_pos):
+            if self.game_state.is_queen_path_clear(
+                trial_move.from_pos, trial_move.to_pos
+            ):
                 self.selected_destination = board_position
             elif token == settings.WHITE_AMAZON:
                 self.selected_amazon = board_position

@@ -9,16 +9,7 @@ from amazons import settings
 
 @dataclass(frozen=True)
 class Move:
-    """Represents one full Amazons move.
-
-    Args:
-        from_pos: Coordinates of the moving amazon before the move.
-        to_pos: Coordinates of the amazon after movement.
-        arrow_pos: Coordinates where the arrow lands.
-
-    Returns:
-        None
-    """
+    """Represents one full Amazons move."""
 
     from_pos: tuple[int, int]
     to_pos: tuple[int, int]
@@ -26,17 +17,7 @@ class Move:
 
 
 class GameState:
-    """Stores board data and validates/apply game moves.
-
-    Args:
-        board_size: Width/height of the square board.
-        white_positions: Initial white amazon positions.
-        black_positions: Initial black amazon positions.
-        current_player: Which player is to move.
-
-    Returns:
-        None
-    """
+    """Stores board data and validates and applies game moves."""
 
     def __init__(
         self,
@@ -154,6 +135,21 @@ class GameState:
             current_col += step_col
 
         return self.in_bounds(end) and self.piece_at(end) == settings.EMPTY
+
+    def is_queen_path_clear(
+        self, start: tuple[int, int], end: tuple[int, int]
+    ) -> bool:
+        """Public wrapper to check whether a queen-like path is clear.
+
+        Args:
+            start: Path start coordinates.
+            end: Path end coordinates.
+
+        Returns:
+            True when movement follows queen rules and path is unobstructed.
+        """
+
+        return self._path_is_clear(start, end)
 
     def generate_queen_moves(self, start: tuple[int, int]) -> list[tuple[int, int]]:
         """Generate all legal queen-like destinations from a start square.

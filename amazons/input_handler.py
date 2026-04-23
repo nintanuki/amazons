@@ -11,29 +11,14 @@ from amazons import settings
 
 @dataclass(frozen=True)
 class InputAction:
-    """Represents one normalized gameplay action.
-
-    Args:
-        action_type: Action identifier.
-        board_position: Optional board coordinates related to the action.
-
-    Returns:
-        None
-    """
+    """Represents one normalized gameplay action."""
 
     action_type: str
     board_position: tuple[int, int] | None = None
 
 
 class InputHandler:
-    """Collects and normalizes player input events.
-
-    Args:
-        None
-
-    Returns:
-        None
-    """
+    """Collects and normalizes player input events."""
 
     ACTION_QUIT = "quit"
     ACTION_SELECT = "select"

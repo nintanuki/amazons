@@ -8,14 +8,7 @@ from amazons.game_state import GameState, Move
 
 
 class RandomAI:
-    """Simple random-move AI for Amazons.
-
-    Args:
-        seed: Optional random seed.
-
-    Returns:
-        None
-    """
+    """Simple random-move AI for Amazons."""
 
     def __init__(self, seed: int | None = None) -> None:
         self._random = random.Random(seed)

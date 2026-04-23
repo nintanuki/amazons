@@ -1,1 +1,0 @@
-"""Amazons game package."""

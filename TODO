@@ -1,5 +1,0 @@
-- Add polished artwork and sound assets in the dedicated folders.
-- Implement a stronger AI (e.g., minimax with mobility heuristic).
-- Add in-game menu, restart option, and difficulty settings.
-- Add on-screen winner banner and move history panel.
-- Expand automated tests for renderer and input integration.
